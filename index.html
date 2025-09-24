@@ -4,29 +4,31 @@
   <meta charset="utf-8" />
   <title>Live Chat</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="color-scheme" content="dark light" />
   <style>
     html, body { height: 100%; margin: 0; background:#000; }
-    iframe { width: 100%; height: 100%; border: 0; display: block; }
-    noscript { position: fixed; inset: 0; display: grid; place-items: center; color: #fff; font-family: system-ui, sans-serif; }
-    noscript a { color: #7ad7ff; text-decoration: underline; }
+    #app { width:100%; height:100vh; }
   </style>
 </head>
 <body>
-  <!-- Full-screen Discord embed -->
-  <iframe
-    src="https://e.widgetbot.io/channels/1420510859008151605/1420511275854725161"
-    sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms allow-modals"
-  ></iframe>
+  <!-- Must be a REGULAR text channel, not Announcement/Forum/Stage/Media -->
+  <div id="app">
+    <widgetbot
+      server="1420510859008151605"
+      channel="1420511275854725161"
+      width="100%"
+      height="100%">
+    </widgetbot>
+  </div>
 
-  <noscript>
-    <p>JavaScript is off. <a href="https://discord.gg/" target="_blank" rel="noopener">Open Discord</a></p>
-  </noscript>
+  <!-- WidgetBot HTML embed script -->
+  <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed" async></script>
 
-  <!-- FYI: Your original Crate snippet makes a floating button.
-  <script src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async defer></script>
+  <!-- Optional: floating button too, for sanity check
+  <script src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async></script>
   <script>
-    new Crate({ server: '1420510859008151605', channel: '1420511275854725161' })
+    window.addEventListener('load', () => {
+      new Crate({ server:'1420510859008151605', channel:'1420511353248153640' });
+    });
   </script>
   -->
 </body>
